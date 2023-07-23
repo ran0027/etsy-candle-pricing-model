@@ -70,14 +70,19 @@ For a seller focused on selling single, non-personalized candles, using this mod
 
 ## Repository Structure
 
-├── Images
-├── rawData
-├── zippedData
-├── EDA.ipynb
-├── Presentation.ipynb
+├── Archives
+├── images
+├── model_data
+├── .gitignore
 ├── README.md
-└── Presentation.pdf
+├── notebook.ipynb
+├── presentation.pdf
+└── requirements.txt
 
-To reproduce the final and intermediate models on your own machine, create a virtual environment using the packages listed in requirements.txt, and utilize the data in model_data/data.csv.
+## Reproducibility
+
+To reproduce the final and intermediate models on your own machine, clone this repository, create a virtual environment using the packages listed in requirements.txt, and run the notebook 'notebook.ipynb' (this will automatically utilize the data stored in model_data/data.csv.)
+
+## More Information
 
 For more information, please see the [presentation](presentation.pdf) and the [Jupyter notebook](notebook.ipynb).
