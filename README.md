@@ -70,6 +70,7 @@ For a seller focused on selling single, non-personalized candles, using this mod
 
 ## Repository Structure
 
+```
 ├── Archives
 ├── images
 ├── model_data
@@ -78,6 +79,7 @@ For a seller focused on selling single, non-personalized candles, using this mod
 ├── notebook.ipynb
 ├── presentation.pdf
 └── requirements.txt
+```
 
 ## Reproducibility
 
