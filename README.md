@@ -1,8 +1,8 @@
 # Predicting Candle Sales Price on Etsy
 
-Data on 6040 candles was scraped from the Etsy search results for candles (more information about the scraping process can be found [here](Archives/web-scraping.ipynb)) to build a [value-based pricing model](https://www.indeed.com/career-advice/career-development/pricing-modeling) for an entrepreneur who wants to start selling candles on Etsy (or re-price their candles), who wants to go beyond a simple cost-plus pricing model which doesn't take market demand into account.
+Data on 6040 candles was scraped from the Etsy search results for candles (more information about the scraping process can be found [here](Archives/web-scraping.ipynb)) to build a value-based pricing model for an entrepreneur who wants to start selling candles on Etsy (or re-price their candles.)
 
-The final model achieved an RMSE of \\$1.56 and an $R^2$ of 0.91 on the test set (with outliers removed), making it a reasonable model for pricing a "typical" candle sold on Etsy (a single candle being sold for \\$15 to \\$30.) For sets of candles or personalized candles, which tend to sell for a higher price, this model is not appropriate.
+The final model achieved an RMSE ("average error", of sorts) of \\$1.56 and explains about 91% of the variance in the test set (with outliers removed), making it a reasonable model for pricing a "typical" candle sold on Etsy. *For sets of candles or personalized candles, which tend to sell for a higher price, this model is not appropriate.*
 
 ![Softly glowing candles on a white background](images/readme_header.png)
 
@@ -10,7 +10,7 @@ The final model achieved an RMSE of \\$1.56 and an $R^2$ of 0.91 on the test set
 
 Determining a price for which to sell your products is an important aspect of starting an online retail business, and there are [multiple ways to do so](https://www.indeed.com/career-advice/career-development/pricing-modeling).
 
-We set out to build a value-based pricing model using data scraped from the popular e-commerce store Etsy. A value-based model sets a price based on what consumers will likely pay for your product, rather than using your costs and ideal profit margin to set a price.
+I set out to build a value-based pricing model using data scraped from the popular e-commerce store Etsy. A value-based model sets a price based on what consumers will likely pay for your product, rather than using your costs and ideal profit margin to set a price. For the purposes of illustration, I chose to build a model for pricing a candle.
 
 This model would be a great tool for someone who wants to explore the feasibility of starting an online retail business on Etsy before investing in the tools and knowledge needed to do so. The model could also be used by an established Etsy shop to re-price products following significant changes in the seller's Etsy statistics or item features.
 
@@ -18,13 +18,13 @@ This model would be a great tool for someone who wants to explore the feasibilit
 
 ### Distribution of Target
 
-75\% of candles in the dataset were priced between \\$14 and \\$21, with 25\% of candles selling for less than \\$14 and 25\% selling for more than \\$21.
+75\% of candles in the dataset were priced between \$14 and \$21, with 25\% of candles selling for less than \$14 and 25\% selling for more than \$21.
 
 ![Histogram showing distribution of price](images/price_dist.jpg)
 
-*Extreme outliers are not shown in the histogram above; the most expensive listing was for a custom order priced at \\$350, which is not representative of a typical candle for sale on Etsy.*
+*Extreme outliers (candles for more than $\80) are not shown in the histogram above; the most expensive listing was for a custom order priced at \$350, which is not representative of a typical candle for sale on Etsy.*
 
-On casual inspection, listings for more than \\$21 may generally involve sets of candles or personalized candles, although further analysis (perhaps using NLP techniques) needs to be done to confirm this suspicion.
+On casual inspection, listings for more than \$21 may generally involve sets of candles or personalized candles, although further analysis (perhaps using NLP techniques) needs to be done to confirm this suspicion.
 
 ### Outliers
 
@@ -40,31 +40,27 @@ The correlation of other features with price was not particularly strong, althou
 
 ## Modeling and Evaluation
 
-Two primary types of regression models were built to predict candle price: linear, and tree-based ensemble models (random forest.)
+Two types of regression models were built (and tuned) to predict candle price: a linear model, and a tree-based ensemble model (random forest and xgboost.)
 
 All models were compared to each other and a simple baseline (the mean of the training data) using RMSE (root mean squared error.)
 
 ### Simple Baseline
 
-A simple baseline model of predicting the mean of the training set achieved an RMSE of \\$11.34 on the validation set.
+A simple baseline model of predicting the mean of the training set achieved an RMSE of \$11.34 on the validation set.
 
 ![Scatter plot showing actual vs. predicted prices for simple baseline model on the validation data](images/simple_baseline.jpg)
 
 ### Linear Model
 
-A baseline multiple linear regression model achieved a validation RMSE of \\$10.94.
+A baseline multiple linear regression model achieved a validation RMSE of \$10.94.
 
-The best linear model obtained was a Lasso model with default regularization parameter value and degree 3 polynomial terms, achieving a validation RMSE of \\$5.65. The model's predictions on the validation dataset are quite similar to the simple baseline model of predicting the mean.
-
-![Scatter plot showing actual vs. predicted prices for best linear model]('images/best_linear_model.jpg')
+The best linear model obtained was a Lasso model with default regularization parameter value and degree 3 polynomial terms, achieving a validation RMSE of \$5.65. The model's predictions on the validation dataset are quite similar to the simple baseline model of predicting the mean.
 
 ### Tree-Based Ensemble Model
 
 Both a regular random forest and XG boost were trained on the training data and tuned using the validation data.
 
-A tuned random forest performed the best on the validation data with an RMSE of \\$1.65.
-
-![Scatter plot showing actual vs. predicted prices for best random forest model, outliers excluded]('images/best_rf_model.jpg')
+A tuned random forest performed the best on the validation data with an RMSE of \$1.56.
 
 ## Conclusion
 
@@ -74,3 +70,14 @@ For a seller focused on selling single, non-personalized candles, using this mod
 
 ## Repository Structure
 
+├── Images
+├── rawData
+├── zippedData
+├── EDA.ipynb
+├── Presentation.ipynb
+├── README.md
+└── Presentation.pdf
+
+To reproduce the final and intermediate models on your own machine, create a virtual environment using the packages listed in requirements.txt, and utilize the data in model_data/data.csv.
+
+For more information, please see the [presentation](presentation.pdf) and the [Jupyter notebook](notebook.ipynb).
