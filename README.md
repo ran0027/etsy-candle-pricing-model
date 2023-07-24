@@ -2,7 +2,7 @@
 
 Data on 6040 candles was scraped from the Etsy search results for candles (more information about the scraping process can be found [here](Archives/web-scraping.ipynb)) to build a value-based pricing model for an entrepreneur who wants to start selling candles on Etsy (or re-price their candles.)
 
-The final model achieved an RMSE ("average error", of sorts) of \\$1.56 and explains about 91% of the variance in the test set (with outliers removed), making it a reasonable model for pricing a "typical" candle sold on Etsy. *For sets of candles or personalized candles, which tend to sell for a higher price, this model is not appropriate.*
+The final model achieved an RMSE ("average error", of sorts) of \$1.56 and explains about 91% of the variance in the test set (with outliers removed), making it a reasonable model for pricing a "typical" candle sold on Etsy. *For sets of candles or personalized candles, which tend to sell for a higher price, this model is not appropriate.*
 
 ![Softly glowing candles on a white background](images/readme_header.png)
 
@@ -18,11 +18,11 @@ This model would be a great tool for someone who wants to explore the feasibilit
 
 ### Distribution of Target
 
-75\% of candles in the dataset were priced between \$14 and \$21, with 25\% of candles selling for less than \$14 and 25\% selling for more than \$21.
+50\% of candles in the dataset were priced between \$14 and \$21, with 25\% of candles selling for less than \$14 and 25\% selling for more than \$21.
 
 ![Histogram showing distribution of price](images/price_dist.jpg)
 
-*Extreme outliers (candles for more than $\80) are not shown in the histogram above; the most expensive listing was for a custom order priced at \$350, which is not representative of a typical candle for sale on Etsy.*
+*Extreme outliers (candles for more than \$80) are not shown in the histogram above; the most expensive listing was for a custom order priced at \$350, which is not representative of a typical candle for sale on Etsy.*
 
 On casual inspection, listings for more than \$21 may generally involve sets of candles or personalized candles, although further analysis (perhaps using NLP techniques) needs to be done to confirm this suspicion.
 
