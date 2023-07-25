@@ -62,11 +62,13 @@ Both a regular random forest and XG boost were trained on the training data and 
 
 A tuned random forest performed the best on the validation data with an RMSE of \$1.56.
 
-## Conclusion
+### Conclusion
 
 Based on RMSE alone, the best model does a decent job of pricing candles in the "acceptable price range" (within 1.5 times the interquartile range of the "middle half" of candle prices.)
 
-For a seller focused on selling single, non-personalized candles, using this model to estimate a starting price for your product based on market demand is completely appropriate.
+## Recommendations
+
+For a new seller on Etsy pricing your first candle, I suggest selecting a price close to \$21.50 to match the typical price of a candle being sold by similar sellers.
 
 ## Repository Structure
 
