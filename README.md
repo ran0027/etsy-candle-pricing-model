@@ -4,7 +4,7 @@
 
 The purpose of this project is to build a value-based pricing model to allow an entrepreneur who wants to start selling candles on Etsy to set a price for their first candle.
 
-The final model (regression model predicting the price of a candle listing) achieved an RMSE of \$1.56 and explains about 91% of the variance in the test set with outliers removed.
+The final model (regression model predicting the price of a candle listing) achieved an RMSE of \$1.65 and explains about 91% of the variance in the test set with outliers removed.
 
 The model suggests that setting a price around \$21.50 (\$20-\$23) makes sense in the Etsy market for a new seller with no reviews on the e-commerce site yet.
 
@@ -22,7 +22,7 @@ This model is one way to set a price for the first candle you want to sell on Et
 
 ### Distribution of Target
 
-Data on 6040 candles was scraped from the Etsy search results for candles (more information about the scraping process can be found [here](Archives/web-scraping.ipynb).) 50\% of candles in this dataset were priced between \$14 and \$21, with 25\% of candles selling for less than \$14 and 25\% selling for more than \$21.
+I scraped data on 6040 candles from the Etsy search results for candles (more information about the scraping process can be found [here](Archives/web-scraping.ipynb).) 50\% of candles in this dataset were priced between \$14 and \$21, with 25\% of candles selling for less than \$14 and 25\% selling for more than \$21.
 
 ![Histogram showing distribution of price](images/price_dist.jpg)
 
