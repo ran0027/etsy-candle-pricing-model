@@ -88,8 +88,8 @@ This recommendation is based on the best regression model found, a random forest
 ├── model_data
 ├── .gitignore
 ├── README.md
-├── notebook.ipynb
-├── presentation.pdf
+├── candle-price-prediction_presentation.pdf
+├── eda-modeling-evaluation.ipynb
 └── requirements.txt
 ```
 
